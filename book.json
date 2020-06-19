@@ -1,0 +1,41 @@
+{
+  "author": "wangwei17",
+  "description": "从单体应用到微服务架构",
+  "extension": null,
+  "generator": "site",
+  "isbn": "",
+  "links": {
+	"sharing": {
+	  "all": null,
+	  "facebook": null,
+	  "google": null,
+	  "twitter": null,
+	  "weibo": null
+	},
+	"sidebar": {
+		"17哥的个人网站": "https://wangwei1237.gitee.io/"
+	}
+  },
+  "output": null,
+  "pdf": {
+	"fontSize": 16,
+	"footerTemplate": null,
+	"headerTemplate": null,
+	"margin": {
+	  "bottom": 36,
+	  "left": 62,
+	  "right": 62,
+	  "top": 36
+	},
+	"pageNumbers": true,
+	"paperSize": "a4"
+  },
+  "plugins": [],
+  "pluginsConfig": {
+  	"theme-default": {
+        "showLevel": false
+    }
+  },
+  "title": "Monolith to Microservices",
+  "variables": {}
+}
