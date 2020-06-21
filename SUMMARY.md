@@ -11,5 +11,7 @@
 
 ### 2. 规划迁移
 * [2.1 了解迁移的目标](docs/Understanding_the_Goal.md)
+* [2.2 为什么选择微服务](docs/Why_Might_You_Choose_Microservices.md)
+* [2.3 什么时候微服务不是一个好的选择](docs/When_Might_Microservices_Be_a_Bad_Idea.md)
 
 
