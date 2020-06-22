@@ -13,5 +13,8 @@
 * [2.1 了解迁移的目标](docs/Understanding_the_Goal.md)
 * [2.2 为什么选择微服务](docs/Why_Might_You_Choose_Microservices.md)
 * [2.3 什么时候微服务不是一个好的选择](docs/When_Might_Microservices_Be_a_Bad_Idea.md)
-
-
+* [2.4 权衡折衷](docs/Trade_Offs.md)
+* [2.5 带动其他人员](docs/Taking_People_on_the_Journey.md)
+* [2.6 组织变革](docs/Changing_Organizations.md)
+* [2.7 渐进式迁移的重要性](docs/Importance_of_Incremental_Migration.md)
+* [2.8 变革的成本](docs/Cost_of_Change.md)
