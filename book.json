@@ -30,7 +30,7 @@
     "pageNumbers": true,
     "paperSize": "a4"
   },
-  "plugins": ["page-toc-button"],
+  "plugins": ["page-toc-button", "tbfed-pagefooter"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false
@@ -41,6 +41,9 @@
     "page-toc-button": {
         "maxTocDepth": 2,
         "minTocSize": 2
+    },
+    "tbfed-pagefooter": {
+      "copyright":"Copyrights &copy wangwei"
     }
   },
   "title": "Monolith to Microservices",
