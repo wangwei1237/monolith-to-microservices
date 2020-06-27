@@ -1,11 +1,13 @@
 air cover: 空中掩护
 brownfield:
 burning platform: 燃烧的平台
+business analyst: 商业分析师
 cargo cult: 货物崇拜
 delivery contention: 交付冲突
 greenfield: 
 management consultancy: 管理咨询公司
 multi-tenant: 多租户
+organizational-silos: 组织孤岛
 referential integrity: 参照完整性
 Scale-ups: 规模企业
 single-tenant: 单租户

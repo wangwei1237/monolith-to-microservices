@@ -20,6 +20,6 @@
 * [2.8 变革的成本](docs/Cost_of_Change.md)
 * [2.9 我们从哪里启程](docs/So_Where_Do_We_Start.md)
 * [2.10 领域驱动设计](docs/Domain_Driven_Design.md)
-* [2.11 A Combined Model](docs/A_Combined_Model.md)
-* [2.12 Reorganizing Teams](docs/Reorganizing_Teams.md)
+* [2.11 融合模型](docs/A_Combined_Model.md)
+* [2.12 重组团队](docs/Reorganizing_Teams.md)
 * [2.13 如何知道迁移过程是否有效](docs/How_Will_You_Know_if_the_Transition_Is_Working.md)
