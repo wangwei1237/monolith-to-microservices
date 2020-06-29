@@ -30,7 +30,7 @@
     "pageNumbers": true,
     "paperSize": "a4"
   },
-  "plugins": ["page-toc-button", "tbfed-pagefooter"],
+  "plugins": ["page-toc-button", "tbfed-pagefooter", "cnzz"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false
@@ -44,6 +44,11 @@
     },
     "tbfed-pagefooter": {
       "copyright":"Copyrights &copy wangwei"
+    }, 
+    "cnzz": {
+      "visible": true,
+      "style": "1",
+        "siteid": "1278605528"
     }
   },
   "title": "Monolith to Microservices",

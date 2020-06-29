@@ -3,6 +3,8 @@ brownfield:
 burning platform: 燃烧的平台
 business analyst: 商业分析师
 cargo cult: 货物崇拜
+concorde fallacy: 协和式谬误
+cycle time: 
 delivery contention: 交付冲突
 greenfield: 
 management consultancy: 管理咨询公司
