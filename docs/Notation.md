@@ -6,14 +6,20 @@ cargo cult: 货物崇拜
 concorde fallacy: 协和式谬误
 cycle time: 
 delivery contention: 交付冲突
+end-to-end extraction: 端到端抽取
+ESB(Enterprise Service Bus): 
 greenfield: 
 management consultancy: 管理咨询公司
 multi-tenant: 多租户
 organizational-silos: 组织孤岛
+project sponsor: 项目发起人
 referential integrity: 参照完整性
 Scale-ups: 规模企业
+shallow extractions: 浅层抽取
 single-tenant: 单租户
-Startups: 初创企业
+smart endpoints, dumb pipes: 智能终端，傻瓜通道
+stakeholder: 
+startups: 初创企业
 strangler fig approach: 绞杀者模式
 sunk cost: 沉默成本
 the Mythical Man Month: 人月神话

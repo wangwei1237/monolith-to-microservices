@@ -30,13 +30,16 @@
     "pageNumbers": true,
     "paperSize": "a4"
   },
-  "plugins": ["page-toc-button", "tbfed-pagefooter", "cnzz"],
+  "plugins": ["page-toc-button", 
+              "tbfed-pagefooter", 
+              "cnzz", 
+              "hints"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false
     },
     "fontsettings": {
-        "theme": "sepia"
+        "theme": "white"
     },
     "page-toc-button": {
         "maxTocDepth": 2,
