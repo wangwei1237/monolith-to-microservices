@@ -33,7 +33,8 @@
   "plugins": ["page-toc-button", 
               "tbfed-pagefooter", 
               "cnzz", 
-              "hints"],
+              "hints",
+              "sitemap-general"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false
@@ -52,6 +53,15 @@
       "visible": true,
       "style": "1",
         "siteid": "1278605528"
+    },
+    "hints": {
+      "info": "fa fa-info-circle",
+      "tip": "fa fa-sticky-note",
+      "danger": "fa fa-bug",
+      "working": "fa fa-cog fa-spin"
+    },
+    "sitemap-general": {
+      "prefix": "https://wangwei1237.gitee.io/monolith-to-microservices/"
     }
   },
   "title": "Monolith to Microservices",

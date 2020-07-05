@@ -3,7 +3,7 @@
 ### 0. 前言
 * [0.1 前言](README.md)
 
-### 1. Just Enough Microservices
+### 1. 关于微服务，此章足矣
 * [1.1 什么是微服务](docs/What_Are_Microservices.md)
 * [1.2 单体应用](docs/The_Monolith.md)
 * [1.3 关于耦合和内聚](docs/On_Coupling_and_Cohesion.md)
