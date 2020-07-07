@@ -26,3 +26,4 @@ startups: 初创企业
 strangler fig approach: 绞杀者模式
 sunk cost: 沉默成本
 the Mythical Man Month: 人月神话
+yawing chasm of mistrust: 不信任鸿沟
