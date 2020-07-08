@@ -5,6 +5,11 @@
 
 有任何的意见，可以在文章下方的评论区进行评论。
 {% endhint %}
+
+{% hint style='working' %}
+注意：这种区域的内容并非是原书的内容，而是根据译者的经历补充的额外资料。
+{% endhint %}
+
 ![](images/cover.png)
 
 

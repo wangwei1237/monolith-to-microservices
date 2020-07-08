@@ -8,6 +8,7 @@ cycle time:
 delivery contention: 交付冲突
 end-to-end extraction: 端到端抽取
 ESB(Enterprise Service Bus): 
+implementation couples: 实现耦合
 greenfield: 
 management consultancy: 管理咨询公司
 mix and match: 混搭 
