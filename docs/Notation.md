@@ -4,6 +4,7 @@ burning platform: 燃烧的平台
 business analyst: 商业分析师
 cargo cult: 货物崇拜
 concorde fallacy: 协和式谬误
+continuous delivery
 cycle time: 
 delivery contention: 交付冲突
 end-to-end extraction: 端到端抽取
