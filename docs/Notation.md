@@ -1,4 +1,5 @@
 air cover: 空中掩护
+bounded context: 界定的上下文
 brownfield:
 burning platform: 燃烧的平台
 business analyst: 商业分析师
