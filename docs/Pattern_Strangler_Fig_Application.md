@@ -155,11 +155,116 @@ HTTP具有某些很有趣的能力。HTTP可以轻而易举的以一种对调用
 <span id='f311'>图3-11</span>. 基于HTTP的绞杀者模式的实现
 
 ## 改变协议
+也可以使用代理来转换调用的协议。例如，当前对外开放的可能是基于HTTP的SOAP接口，但是新的微服务将改为gRPC接口。然后，我们可以配置代理以对请求和响应做相应的转换，如[图3-12](#f312)所示。
 
+![](../images/3_12.png)
+
+<span id='f312'>图3-12</span>. 作为绞杀者模式迁移的一部分，可以使用代理来改变通信协议
+
+对于这种方法而言，由于代理服务器本身的复杂度和执行逻辑开始不断积累，因此，我确实对此方法有所担忧。对于单个服务，这看起来还不错。但是，如果开始转换多个服务的协议，则在代理中完成的工作会越来越多。我们通常会优化服务的独立部署，但是，如果多个团队都需要编辑一个共享的代理层，则会降低变更以及部署变更的速度。需要注意的是，我们增加的不只是一个新的冲突来源。当我们讨论微服务架构时，经常会有这样的口头禅：**“Keep the pipes dumb, the endpoints smart”**[^译注5]。我们希望减少推送到共享中间件层的功能，因为将更多的功能推送到共享的中间件层的方式确实会降低功能开发的速度。
+
+{% hint style='working' %}
+
+**smart endpoints and dumb pipes**
+
+[smart endpoints and dumb pipes](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)出自Martin Fowler的介绍微服务的一篇文章，其含义就是：保持通信层的简单性，而让服务更智能。
+
+这是区分微服务和SOA的最本质的特征。对于SOA而言，需要一个ESB层来整合系统中的服务，从而降低系统的复杂性。而很多的的功能和逻辑就要放在ESB层，此时可能就是一种：智能通信，而服务简单的方式了。具体如下图所示：
+
+![](../images/esb.png)
+
+也就是说，SOA是：smart pipes and dumb endpionts。
+
+Martin Fowler在文章中也没有否认SOA和Microservice的关系。
+
+> This common manifestation of SOA has led some microservice advocates to reject the SOA label entirely, although others consider microservices to be one form of SOA, perhaps service orientation done right. Either way, the fact that SOA means such different things means it's valuable to have a term that more crisply defines this architectural style.
+>
+> <div align="right">——Martin Fowler</div>
+
+其实，Microservice是SOA的传承，但最本质的一个区别就在于微服务的“Smart endpoints and dumb pipes”。“Smart endpoints and dumb pipes”让微服务成为真正的分布式的、去中心化的架构，其本质就是去ESB，把所有的“智能”逻辑——包括路由、消息解析等——都隐藏在服务内部，从而去掉SOA中的那个大一统的ESB。
+
+但是，去掉ESB之后，意味着服务之间的通信会变得更多，因为这意味着服务的拓扑结构由星型网络重新变成了总线型网络。当然，这也是微服务架构区别于传统的分布式系统的一个重要特征：网络交互的规模。但是优点就是能够做到：独立部署。
+
+{% endhint %}
+
+如果想迁移当前所使用的协议，我宁愿将协议的映射放在服务本身——也就是让服务同时支持新、旧通信协议。如[图3-13](#f313)所示，在服务内部，对旧协议的调用可以在服务内部重新映射为新的通信协议。这避免了对其他服务要使用的代理层的变更管理，并使该服务完全控制此功能如何随时间而变化。我们可以将微服务视为网络端点上的功能集合。我们可能会以不同的方式向不同的消费者开放相同的功能。在服务内部支持不同的消息或请求格式，基本上只是在满足上游消费者的不同需求而已。
+
+![](../images/3_13.png)
+
+<span id='f313'>图3-13</span>. 如果要改变协议类型，请考虑让服务通过多种协议开放其功能
+
+在服务的内部特殊服务的请求和响应进行映射，可以让代理层保持简单，同时也让代理层更加通用。此外，通过提供同时支持两种通信协议的服务，我们也给予自己时间以在潜在的淘汰旧API之前迁移上游服务。
+
+### service mesh
+在[Square公司](https://squareup.com/us/en)，人们采用一种混合方法来解决为不同的上游服务提供不同协议的问题[^1]。他们决定从自研的RPC迁移到gRPC以实现服务到服务（*service-to-service*）的通信。gRPC是一个有着丰富的生态系统的、并有广泛支持的开源RPC框架。为了尽可能降低迁移的痛苦，他们希望减少每个服务的变更量。为此，他们使用了服务网格（*service mesh*）。
+
+如[图3-14](#f314)所示，使用服务网格，每个服务实例都可以通过自己的专用本地代理与其他服务实例通信[^译注6]。可以为每个代理实例可以为与其配对的服务实例进行特殊配置。还可以使用控制平面（*control plane*）集中控制并监视这些代理。由于没有中央代理层（*central proxy layer*），因此，有效的避免了共享的**“smart” pipe**的隐患。此时，如果需要，每个服务可以拥有自己的“服务到服务”的通道。值得注意的是，由于Square架构的发展方式，该公司最终不得不使用开源代理Envoy创建自己的服务网格来满足其需求，而无法使用像Linkerd或Lstio这样的现有的解决方案。
+
+![](../images/3_14.png)
+
+<span id='f314'>图3-14</span>. service mesh概览
+
+服务网格越来越受欢迎，从概念上讲，我认为服务网格的方法非常正确。服务网格是处理常见的service-to-service通信问题的好方法。我担心的是，尽管一些非常聪明的人做了很多工作，但要花一些时间才能使得服务网格的工具可以稳定的使用。毫无疑问，Istio看起来是服务网格领域的领导者，但Istio却远非是这个领域的唯一选择，并且似乎每周都会有新的工具出现。我一般建议：在做出选择之前，给服务网格尽可能多的时间来使其稳定。
+
+### FTP协议的例子
+尽管我详细的论述了绞杀者模式在基于HTTP的系统中的使用，但没有什么可以阻止我们拦截并重定向其他形式的通信协议。瑞士房地产公司Homegate使用一种绞杀者模式的变体来改变用户上传新房产清单的方式。
+
+Homegate公司的用户通过FTP上传清单，而现有的单体系统则处理上传的文件。该公司热衷于向微服务架构转型，并且还希望开始支持一种新的上传机制。新的上传机制将不再采用FTP的批量上传方式，而是采用符合即将批准的REST API标准的REST API。 
+
+Homegate公司不想让用户感知到变更，而是希望执行无缝更改。这意味着，至少目前，FTP仍是用户与系统交互的机制。最后，如[图3-15](#f315)所示，Homegate公司拦截了FTP上传（通过检测FTP服务器中的日志变化），并将新上传的文件定向到一个适配器，而该适配器则将上传的文件转换为新的REST API请求。
+
+![](../images/3_15.png)
+
+<span id='f315'>图3-15</span>. 拦截FTP上传，并将其转到Homegate的新的listings服务
+
+从用户的角度来看，上传过程本身并没有改变。其好处来自这样一个事实：处理上传的新服务能够更快地发布新数据，从而帮助用户更快地发布广告。稍后，会计划直接向客户开放新的REST API。有趣的是，在迁移到新服务期间，启用了两中清单上传机制。这使团队可以确保两种上传机制均能正常运行。这是“并行运行模式”的一个很好的例子，我们稍后将在第113页[^译注7]的[“并行运行模式”](Pattern_Parallel_Run.md)中探讨。
+
+### 消息拦截的例子
+到目前为止，我们已经研究了拦截同步调用，但是如果单体系统是由某种其他形式的协议驱动的呢？单体也许是通过消息代理（*message broker*）接收消息。此时，基本模式是一致的——我们需要一种方法来拦截调用，并将其重定向到我们的新微服务。主要的区别在于协议本身的性质。
+
+#### 基于内容的路由
+在[图3-16](#f316)中，我们的单体系统会接收大量的消息，我们需要拦截其中的部分消息。
+
+![](../images/3_16.png)
+
+<span id='f316'>图3-16</span>. 单体通过一个消息队列来接收请求
+
+一种简单的方法是拦截所有将要发送给下游单体的消息，过滤消息以便可以将消息发送到合适的位置，如[图3-17](#f317)所示。这基本上就是基于内容的路由器模式的实现。Enterprise Integration Patterns[^2]中描述了基于内容的路由器模式。
+
+![](../images/3_17.png)
+
+<span id='f317'>图3-17</span>. 使用基于内容的路由来拦截调用
+
+这种技术使我们能够保持单体不变。但是，我们在请求路径上放置了另一个队列，这可能会增加额外的延迟，这也是我们需要管理的另一件事情。另一个问题是：我们把多少“smarts”置于消息传递层？在*Building Microservices*一书的第4章，我谈到了在服务之间的网络中利用过多的“smarts”所带来的挑战，因为这会让系统更难于理解和更改。
+
+相反，我强烈建议接受“smart endpoints, dumb pipes”的口头禅。“smart endpoints, dumb pipes”是我仍然坚持要做的事情。可以认为，基于内容的路由是我们实现了“smart pipe”，从而增加了如何路由系统之间的调用的复杂性。在某些情况下，基于内容的路由是一种非常有用的技术，但需要找到一个平衡。
+
+#### 选择性消费
+另一种选择是修改单体，让其忽略那些应该由我们的新服务接收的消息，如[图3-18](#f318)所示。此时，我们的新服务和单体共享同一个队列，并且在服务内部使用某种模式匹配程序来监听他们关心的消息。这种过滤技术是基于消息的系统中的普遍的需求，可以使用类似JMS中的Message Selector之类的技术或其他平台上的等效的技术来实现。
+
+![](../images/3_18.png)
+
+<span id='f318'>图3-18</span> 使用基于内容的路由来拦截调用
+
+[图3-18](#f318)的过滤方法不需要创建额外的队列，但是会面临很多挑战。首先，底层的消息技术可能支持也可能不支持共享单个队列的消息订阅（共享单个队列的订阅是一个通用的功能，所以如果是这种情况，我会感到惊讶）。其次，当我们要重定向调用时，需要对两项修改做出非常好地协调才可以。我们需要让单体停止读取用于新服务的调用，然后让新服务来处理消息。同样，还原调用拦截也需要执行两次修改以回滚。
+
+同一队列的消费者类型越多，并且过滤规则越复杂，问题就会变得越多。可以想象这样一种情况：规则重叠时，两个消费者会接受到相同的消息；反之，则两个消费者均忽略了某些消息。因此，我可能会考虑仅对少量消费者或一组简单的过滤规则使用选择性消费的方法。尽管要注意前面提到的潜在缺点，尤其是陷入“smart pipes”的问题，但随着消费者类型的增加，基于内容的路由方法可能更有意义。
+
+选择性消费方案或基于内容的路由方案所增加的复杂度是：如果我们采用异步request-response的通信方式，则需要确保可以将请求路由回客户端，并希望客户端不会意识到事情有所变化。消息驱动系统中的调用路由还有其他的选择，其中许多选择可以帮助我们实现绞杀者模式的迁移。我在这里推荐一个非常好的资源：Enterprise Integration Patterns [^2]。
+
+## 其他的协议
+希望可以从这些例子中了解：即使使用不同类型的协议，也有很多方法可以拦截对现有单体的调用。如果我们的单体是由批处理文件上传驱动的，此时该怎么办？拦截批处理文件，提取要拦截的调用，然后将其从文件中删除，最后再转发。确实，有些机制会使的此过程变得更加复杂，并且使用HTTP之类的协议会容易得多。但是，经过一些创造性的思考，绞杀者模式可以用于很多情况。
+
+## 绞杀者模式的其他例子
+在希望增量升级现有系统时，无论处于什么情况，绞杀者模式都非常有用。并且，绞杀者模式不仅限于实施微服务架构的团队。Martin Fowler在2004年提出绞杀者模式之前，该模式就已经使用了很长时间。在我的前东家——ThoughtWorks——时，我们经常使用绞杀者模式来帮助重建单体应用程序。[Paul Hammant在博客上整理了一份我们使用了绞杀者模式的、不完全的项目清单](https://paulhammant.com/2013/07/14/legacy-application-strangulation-case-studies/)。这些项目包括：trading company’s blotter，机票预订应用程序，铁路售票系统和分类广告门户网站。
 
 ---
+[^1]: For a more thorough explanation, see [“The Road to an Envoy Service Mesh”](https://squ.re/2nts1Gc) by Snow Pettersen at Square’s developer blog.
+[^2]: Bobby Woolf and Gregor Hohpe, Enterprise Integration Patterns (Addison-Wesley, 2003).
 [^译注1]: 此处对应的是英文原书的第104页，而不是翻译之后的页数。
 [^译注2]: headless为没有UI驱动的应用程序，例如谷歌浏览器的headless模式。
 [^译注3]: REST: REpresentational State Transfer，也就是“表述性状态转换”。REST来自于Roy Fielding的[博士论文](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm)。基于这篇论文里的理论，衍生出了RESTFul API的接口设计风格。
 [^译注4]: 原文为：No big bang, stop-the-line re-platforming required.
-[^译注5]: smart endpoints and dumb pipes: https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes
+[^译注5]: [smart endpoints and dumb pipes](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)。此处不对该术语进行翻译，因为保持原汁原味会更好。这个术语出自Martin Fowler的[介绍微服务的一篇文章](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)。其含义就是：保持通信层的简单性，而让服务更智能。这是区分微服务和SOA的最本质的特征。对于SOA而言，需要一个ESB层来整合系统中的服务，从而降低系统的复杂性，而很多的的功能和逻辑就要放在ESB层，此时可能就是一种：智能通信，而服务简单的方式了。
+[^译注6]: 这种模式也成为挎斗模式。
+[^译注7]: 此处为原书的第113页，而不是翻译之后的页码。
