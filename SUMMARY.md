@@ -34,3 +34,22 @@
 * [3.7 新老并行模式](docs/Pattern_Parallel_Run.md)
 * [3.8 装饰协作模式](docs/Pattern_Decorating_Collaborator.md)
 * [3.9 CDC模式](docs/Pattern_Change_Data_Capture.md)
+
+### 4. 数据库拆分
+
+### 5. 成长的烦恼
+* [5.1 服务越多，烦恼越多](docs/More_Services_More_Pain.md)
+* [5.2 团队不断扩张时的微服务所有制问题](docs/Ownership_at_Scale.md)
+* [5.3 破坏性的服务变更](docs/Breaking_Changes.md)
+* [5.4 报表问题](docs/Reporting.md)
+* [5.5 监控和问题定位](docs/Monitoring_and_Troubleshooting.md)
+* [5.6 本地的开发体验问题](docs/Local_Developer_Experience.md)
+* [5.7 微服务部署和状态管理的问题](docs/Running_Too_Many_Things.md)
+* [5.8 端到端的测试](docs/End-to-End_Testing.md)
+* [5.9 局部优化 VS. 全局优化](docs/Global_Versus_Local_Optimization.md)
+* [5.10 系统的鲁棒性和弹性](docs/Robustness_and_Resiliency.md)
+* [5.11 孤儿服务的问题](docs/Orphaned_Services.md)
+
+### 6. 结束语
+* [6. 结束语](docs/Closing_Words.md)
+
