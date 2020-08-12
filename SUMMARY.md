@@ -43,7 +43,7 @@
 * [5.3 破坏性的服务变更](docs/Breaking_Changes.md)
 * [5.4 报表问题](docs/Reporting.md)
 * [5.5 监控和问题定位](docs/Monitoring_and_Troubleshooting.md)
-* [5.6 本地的开发体验问题](docs/Local_Developer_Experience.md)
+* [5.6 本地开发体验的问题](docs/Local_Developer_Experience.md)
 * [5.7 微服务部署和状态管理的问题](docs/Running_Too_Many_Things.md)
 * [5.8 端到端的测试](docs/End-to-End_Testing.md)
 * [5.9 局部优化 VS. 全局优化](docs/Global_Versus_Local_Optimization.md)
