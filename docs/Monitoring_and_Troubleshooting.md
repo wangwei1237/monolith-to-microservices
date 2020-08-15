@@ -1,7 +1,9 @@
 # 监控和问题定位
 > We replaced our monolith with microservices so that every outage could be more like a murder mystery.
+>
 > 我们用微服务代替了我们的单体，这使得每次服务中断都更像是一个迷案。
-> **<div align="center">[Honest Status Page (@honest_update)](https://twitter.com/honest_update/status/651897353889259520)</div>**
+> 
+> [**<div align="right">——Honest Status Page(@honest_update)</div>**](https://twitter.com/honest_update/status/651897353889259520)
 
 对于标准的单体应用而言，我们可以采用一种相当简单的方法来监控。我们需要监控的机器数量很少，并且在某种程度而言，应用程序的故障模式是二元的——应用程序通常要么全部可用，要么全部不可用。而对于微服务架构，可能仅有一个服务实例出现故障，或者可能仅需要考虑某种类型的实例——我们可以作出正确的选择吗？
 
