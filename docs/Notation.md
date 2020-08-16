@@ -15,6 +15,7 @@ greenfield:
 management consultancy: 管理咨询公司
 mix and match: 混搭 
 multi-tenant: 多租户
+back pressure: 
 organizational-silos: 组织孤岛
 project sponsor: 项目发起人
 project owner: 产品负责人
