@@ -77,9 +77,9 @@ Notification服务在处理请求时，可以使用相同的关联ID来记录该
 不要以为我们会预先知道答案。然而，如果我们以为我们会预知答案，我们将会感到惊讶。因此擅长于向系统提出问题，并确保可以使用工具链来执行即席查询（*ad hoc querying*）。如果想更详细地探讨这个概念，我建议将Distributed Systems Observability一书作为一个很好的起点[^2]。
 
 {% hint style='working' %}
-**ad hoc**
+**<span id="adhoc">ad hoc</span>**
 
-ad hoc 一般都说是即席查询，那么到底什么是即席查询呢？
+ad hoc 一般都说是查询，那么到底什么是即席查询呢？
 
 在wikipedia上的解释为：ad hoc允许终端用户自己去建立特定的、自定义的查询请求。通常是通过一个用户友好的图形界面来进行数据查询，而无需用户对SQL 或者数据库架构有深入的了解。
 

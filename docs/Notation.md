@@ -34,6 +34,7 @@ shallow extractions: 浅层抽取
 silos: 孤岛
 single-tenant: 单租户
 smart endpoints, dumb pipes: 智能终端，傻瓜通道
+stale data: 脏数据
 stakeholder: 
 startups: 初创企业
 strangler fig approach: 绞杀者模式

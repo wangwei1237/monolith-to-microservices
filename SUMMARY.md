@@ -39,7 +39,8 @@
 * [4.1 共享数据库](docs/Pattern_The_Shared_Database.md)
 * [4.2 然而，现在无法拆分数据库](docs/But_It_Cant_Be_Done.md)
 * [4.3 数据库视图](docs/Pattern_Database_View.md)
-* [4.4 数据库包装服务](docs/Pattern_Database_Wrapping_Service.md)
+* [4.4 把数据库包装成服务](docs/Pattern_Database_Wrapping_Service.md)
+* [4.5 把数据库视为服务接口](docs/Pattern_Database-as-a-Service_Interface.md)
 
 ### 5. 成长的烦恼
 * [5.1 服务越多，烦恼越多](docs/More_Services_More_Pain.md)
