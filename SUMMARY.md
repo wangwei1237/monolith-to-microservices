@@ -41,8 +41,9 @@
 * [4.3 数据库视图](docs/Pattern_Database_View.md)
 * [4.4 把数据库包装成服务](docs/Pattern_Database_Wrapping_Service.md)
 * [4.5 把数据库视为服务接口](docs/Pattern_Database-as-a-Service_Interface.md)
-* [4.6 转换数据的所有权](docs/Transferring_Ownership.md)
+* [4.6 改变数据的所有权](docs/Transferring_Ownership.md)
 * [4.7 数据同步](docs/Data_Synchronization.md)
+* [4.8 在应用中同步数据](docs/Pattern_Synchronize_Data_in_Application.md)
 
 ### 5. 成长的烦恼
 * [5.1 服务越多，烦恼越多](docs/More_Services_More_Pain.md)
