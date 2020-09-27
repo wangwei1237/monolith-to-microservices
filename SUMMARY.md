@@ -35,7 +35,7 @@
 * [3.8 装饰协作模式](docs/Pattern_Decorating_Collaborator.md)
 * [3.9 CDC模式](docs/Pattern_Change_Data_Capture.md)
 
-### 4. 数据库拆分
+### 4. 拆分数据库
 * [4.1 共享数据库](docs/Pattern_The_Shared_Database.md)
 * [4.2 然而，现在无法拆分数据库](docs/But_It_Cant_Be_Done.md)
 * [4.3 数据库视图](docs/Pattern_Database_View.md)
@@ -47,6 +47,8 @@
 * [4.9 跟踪器写入模式](docs/Pattern_Tracer_Write.md)
 * [4.10 拆分数据库](docs/Splitting_Apart_the_Database.md)
 * [4.11 先拆分数据库还是先拆分代码](docs/Splitting_the_Database_First_or_the_Code.md)
+* [4.12 数据分离的例子](docs/Schema_Separation_Examples.md)
+* [4.13 拆分表](docs/Pattern_Split_Table.md)
 
 ### 5. 成长的烦恼
 * [5.1 服务越多，烦恼越多](docs/More_Services_More_Pain.md)

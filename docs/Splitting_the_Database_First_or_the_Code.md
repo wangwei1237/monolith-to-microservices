@@ -28,6 +28,7 @@
 
 ### 每个界定的上下文一个数据持久层
 {% hint style='working' %}
+
 **repository的概念**
 
 在《企业架构模式》中，译者将repository翻译为资源库，并给出如下说明：通过用来访问领域对象的一个类似集合的接口，在领域与数据映射层之间进行协调。
@@ -45,6 +46,7 @@
 > > A repository performs the tasks of an intermediary between the domain model layers and data mapping, acting in a similar way to a set of domain objects in memory. Client objects declaratively build queries and send them to the repositories for answers. Conceptually, a repository encapsulates a set of objects stored in the database and operations that can be performed on them, providing a way that is closer to the persistence layer. Repositories, also, support the purpose of separating, clearly and in one direction, the dependency between the work domain and the data allocation or mapping.
 
 因此，简单而言，此处，repository的含义就是：数据持久层。
+
 {% endhint %}
 
 一种常见的做法是增加一个数据持久层（*repository layer*）来把代码和数据库绑定在一起，从而实现把数据库映射成对象或数据结构。数据持久层可以利用类似Hibernate的框架来支持。没有必要为所有的数据访问都创建一个数据持久层，如[图4-27](#f427)所示，可以按照[界定的上下文](Just_Enough_Domain_Driven_Design.md#界定的上下文)来拆解数据持久层，这很有价值。
@@ -138,9 +140,11 @@
 我明白：你可能已经厌倦了所有这些“取决于”的东西，对吗？我不能怪你。问题是，每个人的情况都不一样，所以我想为你提供足够的上下文信息，并讨论各种利弊，以帮助你下定决心。但是，我知道，有时人们并不想在这些事情上过多思考，而只是想要一个方法而已，所以就有了这一节的内容。
 
 {% hint style='working' %}
+
 **[a hot take](https://en.wikipedia.org/wiki/Hot_take)**
 
 正如在维基百科上的解释：在新闻业中，[a hot take](https://en.wikipedia.org/wiki/Hot_take)是“针对新闻报道的”蓄意挑衅性评论，这种评论“通常是在紧迫的期限内撰写的，很少进行研究或报道，**甚至更少地思考**” 。
+
 {% endhint %}
 
 如果可以修改单体，并且担心对性能或数据一致性的潜在影响，我会先拆分数据。否则，我将先拆分代码，并使用代码的拆分来帮助我理解代码对数据所有制的影响。但重要的是，我们也要为自己思考，并考虑在特定情况下会影响决策过程的所有因素。
