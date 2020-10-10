@@ -49,6 +49,9 @@
 * [4.11 先拆分数据库还是先拆分代码](docs/Splitting_the_Database_First_or_the_Code.md)
 * [4.12 数据分离的例子](docs/Schema_Separation_Examples.md)
 * [4.13 拆分表](docs/Pattern_Split_Table.md)
+* [4.14 把表的外键关系移至代码](docs/Pattern_Move_ForeignKey_Relationship_to_Code.md)
+* [4.15 数据库事务](docs/Transactions.md)
+* [4.16 Sagas](docs/Sagas.md)
 
 ### 5. 成长的烦恼
 * [5.1 服务越多，烦恼越多](docs/More_Services_More_Pain.md)
