@@ -55,8 +55,6 @@
 
 我们没有重新实现User Notifications功能，而是通过在单体中公开该功能，从而为我们的新微服务提供了User Nofitifications功能——显然，这需要修改单体本身。
 
-我们没有重新实现User Notifications功能，而是通过从单体公开了该功能，从而向我们的新微服务提供了User Nofitifications功能——显然，这需要对单体本身作出更改。
-
 但是，为了使绞杀者模式可以发挥作用，我们需要理清我们关注的功能到我们希望迁移的部分的[入站](Domain_Driven_Design.md#fn_译注3)调用图。例如，在[图3-4](#f34)中，我们理想的情况是迁移给用户发送User Notifications的功能到一项新服务中。但是，由于该通知由现有单体的多个入站调用而触发，因此，我们无法清晰地重定向来自系统外部的调用。取而代之的是，我们需要研究一种类似于第104页[^译注1]的“[抽象分支模式](Pattern_Branch_by_Abstraction.md)”中所述的技术。
 
 ![](../images/3_4.png)
