@@ -165,7 +165,7 @@ HTTP具有某些很有趣的能力。HTTP可以轻而易举的以一种对调用
 
 {% hint style='working' %}
 
-**smart endpoints and dumb pipes**
+**<span id="sedp">smart endpoints and dumb pipes</span>**
 
 [smart endpoints and dumb pipes](https://martinfowler.com/articles/microservices.html#SmartEndpointsAndDumbPipes)出自Martin Fowler的介绍微服务的一篇文章，其含义就是：保持通信层的简单性，而让服务更智能。
 

@@ -1,0 +1,17 @@
+.hints-icon-img {
+    display: table-cell;
+    padding-right: 15px;
+    padding-left: 5px;
+    width: 20%;
+}
+
+.hints-icon{
+    display: table-cell;
+    padding-right: 15px;
+    padding-left: 5px;
+}
+
+.hints-container {
+    display: table-cell;
+    vertical-align: top;
+}

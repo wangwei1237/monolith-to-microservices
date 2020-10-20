@@ -36,6 +36,7 @@ Vanilla Kubernetes指纯净、原生的Kubernetes，一般还有Vanilla JavaScri
 
 与那些我与之合作的、已经使用共有云的团队，我并不倾向于从K8s或类似的基于容器的平台开始。我会优先采用serverless的方法——因为可以减少运维的工作量，因此会尝试将诸如FaaS之类的serverless技术作为默认选择。如果我们的问题不满足我们所使用的serverless产品的限制，那么请寻找其他的选择。显然，并非所有的**问题空间**都是相同的。但是我认为，如果我们已经在公共云上，我们可能并不总是需要像K8s这样的基于容器的平台的复杂性。
 
+<span id='problemspacesolutionspace'></span>
 {% hint style='working' %}
 **Problem space & Solution space**
 
