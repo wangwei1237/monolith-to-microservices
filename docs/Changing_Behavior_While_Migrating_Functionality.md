@@ -12,4 +12,4 @@
 迁移功能时，尽量消除对待迁移功能的任何更改——尽可能把新功能或Bug修复推迟到迁移完成之后。否则，可能会降低系统的可回滚能力。
 {% endhint %}
 
-[^译注1]: just slip this feature in while you’re at it.
+[^译注1]: 原文为：just slip this feature in while you’re at it.
