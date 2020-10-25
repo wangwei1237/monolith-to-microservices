@@ -15,7 +15,7 @@
 关于耦合和内聚已经有大量的信息，所以在这里过多地重复这些内容并不明智，但是我认为应该对其进行总结，特别是把这些想法置于微服务架构的上下文中。内聚和耦合的概念会极大地影响我们对微服务架构的看法。这不足为奇：内聚和耦合是模块化软件所关注的。那么，除了通过网络通信并可以独立部署的模块以外，微服务架构还是什么呢？
 
 > **<div align="center">耦合和内聚简史</div>**
-> 在计算领域，内聚和耦合的概念已经存在很长时间了。内聚和耦合的概念最初由[Larry Constantine](https://history.computer.org/pioneers/constantine.html)在1968年提出。这对概念构成了如何编写计算机程序的许多思想的基础。Larry Constantine和Edward Yourdon的[**Structured Design(Prentice Hall，1979)**](https://dl.acm.org/doi/book/10.5555/578522)等书籍随后影响了几代程序员（我本人在攻读大学学位期间，是要求必需阅读该书的，该书距其首次出版已有仅20年的时间）。
+> 在计算领域，内聚和耦合的概念已经存在很长时间了。内聚和耦合的概念最初由[Larry Constantine](https://history.computer.org/pioneers/constantine.html)在1968年提出。这对概念构成了如何编写计算机程序的许多思想的基础。Larry Constantine和Edward Yourdon的[**Structured Design(Prentice Hall，1979)**](https://dl.acm.org/doi/book/10.5555/578522)等书籍随后影响了几代程序员（我本人在攻读大学学位期间，是要求必需阅读该书的，该书距其首次出版已有近20年的时间）。
 > 
 > Larry在1968年（对计算机领域而言，这是特别幸运的一年）的全国模块化编程研讨会（*National Symposium on Modular Programming*）上首次提出了内聚和耦合的概念。在该会议上还首次提出了康威定律。1968年，还举办了两次北约软件工程大会（*infamous NATO-sponsored conferences*）[^译注1]，并且在会议上提出了[**软件工程**](http://homepages.cs.ncl.ac.uk/brian.randell/NATO/nato1968.PDF)的概念（软件工程是Margaret H. Hamilton在之前创造的一个术语）。
 
