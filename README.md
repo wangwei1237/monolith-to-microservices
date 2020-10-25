@@ -3,12 +3,8 @@
 **[Monolith to Microservices: Evolutionary Patterns to Transform Your Monolith](https://www.amazon.com/Monolith-Microservices-Evolutionary-Patterns-Transform/dp/1492047848)**中文版。
 
 {% hint style='info' %}
-**进度说明**
-
-* 已经完成全书核心内容的翻译工作。
-* 已经完成第一章、第二章的整体翻译和校正工作。
-
-有任何的意见，可以在文章下方的评论区进行评论。
+已经完成书籍核心内容的翻译工作，书籍内容也会在这里进行更新。
+欢迎大家提出宝贵意见，不管是翻译的内容问题，还是字词错误，都欢迎大家提交issue(网页下方的评论区域)，我会及时跟进。
 {% endhint %}
 
 {% hint style='working' %}
