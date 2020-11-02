@@ -32,7 +32,7 @@ SnapCI是一个CI/CD的托管工具。该团队以前曾开发过另一个类似
 现实情况是，我们不能期望客户拥有管理微服务架构的技能或平台。即使客户这样做了，他们也可能没有我们所需的相同的技能或平台。例如，不同的Kubernetes安装方式之间就有很大的差异。
 
 {% hint style='working' %}
-译者补充材料：早在 2019 年底的 KubeConNA 中，Google API 基础设施的架构师 Louis Ryan 就透露了 Istio 控制平面架构将要进行调整的消息。[**从即将发布的 1.5 版本开始，原本多个独立的组件将会整合在一起，成为一个单体结构**](https://istio.io/latest/news/releases/1.5.x/announcing-1.5/)。复杂是万恶之源，停止焦虑，学会爱上单体。
+早在 2019 年底的 KubeConNA 中，Google API 基础设施的架构师 Louis Ryan 就透露了 Istio 控制平面架构将要进行调整的消息。[**从即将发布的 1.5 版本开始，原本多个独立的组件将会整合在一起，成为一个单体结构**](https://istio.io/latest/news/releases/1.5.x/announcing-1.5/)。复杂是万恶之源，停止焦虑，学会爱上单体。
 {% endhint %}
 
 ## 暂无充分理由时
