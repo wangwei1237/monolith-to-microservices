@@ -19,6 +19,8 @@ jobs:
     steps:
     - name: test
       run: |
-        echo "$GITHUB_RUN_ID"
+        touch tst
+        cp tst tst-$GITHUB_RUN_ID
+        ls tst*
     - name: Checkout 🛎️
       uses: actions/checkout@v2.3.1
