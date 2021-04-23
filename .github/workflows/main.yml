@@ -17,5 +17,8 @@ jobs:
       BOOK_DIR    : m2m
 
     steps:
+    - name: test
+      run: |
+        echo "$GITHUB_RUN_ID"
     - name: Checkout 🛎️
       uses: actions/checkout@v2.3.1
