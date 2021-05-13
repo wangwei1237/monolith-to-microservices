@@ -158,6 +158,10 @@ smart endpoints and dumb pipes*吗？
 
 关于实现协调saga和编排saga的更详细的讨论以及各种实现细节，不在本书的讨论范围之内。在《 Building Microservices》的第4章中对此进行了介绍，但我也推荐《Enterprise Integration Patterns》这本书来深入了解该主题的许多方面[^14]。
 
+{% hint style='working' %}
+微软的这篇文章从术语，机制，实践等方面对saga进行了简要介绍：https://docs.microsoft.com/en-us/previous-versions/msp-n-p/jj591569(v=pandp.10)?redirectedfrom=MSDN 。
+{% endhint %}
+
 ---
 [^10]: See Hector Garcia-Molina and Kenneth Salem, “Sagas,” in ACM Sigmod Record 16, no. 3 (1987): 249–259.
 [^11]: You really can’t. I’ve tried!
