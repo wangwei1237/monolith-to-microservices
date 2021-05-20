@@ -20,7 +20,9 @@ jobs:
           node-version: "10.21"
       - name: Setup gitbook
         run: | 
-          sudo npm install -g gitbook-cli
+          npm cache clean -f
+          npm install -g npm
+          npm install -g gitbook-cli
       - name: Checkout main source
         uses: actions/checkout@v2
       - name: Build the book
