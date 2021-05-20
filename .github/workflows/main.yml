@@ -23,7 +23,7 @@ jobs:
           sudo npm i -g npm
       - name: Setup gitbook
         run: | 
-          npm install -g gitbook-cli
+          sudo npm install -g gitbook-cli
       - name: Checkout main source
         uses: actions/checkout@v2
       - name: Build the book
