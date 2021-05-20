@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-deploy:
     name: Build and deploy
-    runs-on: macos-10.15
+    runs-on: ubuntu-latest
     env:
       MY_SECRET   : ${{secrets.GH_ACCESS_TOKEN}}
 
@@ -26,4 +26,4 @@ jobs:
       - name: Build the book
         working-directory: ${{ github.workspace }}
         run: |
-          gitbook install && gitbook build
+          gitbook init && gitbook install && gitbook build
