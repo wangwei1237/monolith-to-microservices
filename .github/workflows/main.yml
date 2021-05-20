@@ -20,7 +20,7 @@ jobs:
           node-version: "10.22.0"
       - name: Setup gitbook
         run: | 
-          npm install -g npm@7.10.0
+          npm install -g npm@3.9.2
           npm install -g gitbook-cli
       - name: Checkout main source
         uses: actions/checkout@v2
