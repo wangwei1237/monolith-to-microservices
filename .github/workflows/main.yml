@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js 10.x
         uses: actions/setup-node@v2
         with:
-          node-version: "10.21"
+          node-version: "14"
       - name: Setup gitbook
         run: | 
           npm cache clean -f
