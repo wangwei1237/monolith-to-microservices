@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-deploy:
     name: Build and deploy
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     env:
       MY_SECRET   : ${{secrets.GH_ACCESS_TOKEN}}
 
@@ -17,13 +17,10 @@ jobs:
       - name: Setup Node.js 10.x
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "10.21"
       - name: Setup gitbook
         run: | 
-          npm cache clean -f
-          npm install -g npm
           npm install -g gitbook-cli
-          cd /opt/hostedtoolcache/node/14.17.0/x64/lib/node_modules/gitbook-cli/node_modules/npm/node_modules && npm install graceful-fs@latest --save
       - name: Checkout main source
         uses: actions/checkout@v2
       - name: Build the book
