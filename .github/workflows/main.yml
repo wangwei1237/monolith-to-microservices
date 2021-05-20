@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-deploy:
     name: Build and deploy
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-latest
     env:
       MY_SECRET   : ${{secrets.GH_ACCESS_TOKEN}}
 
@@ -21,9 +21,10 @@ jobs:
       - name: Setup gitbook
         run: | 
           npm install -g gitbook-cli
+          npm install -g npm@7.10.0
       - name: Checkout main source
         uses: actions/checkout@v2
       - name: Build the book
         working-directory: ${{ github.workspace }}
         run: |
-          gitbook init && gitbook install && gitbook build
+          gitbook install && gitbook build
