@@ -27,4 +27,5 @@ jobs:
       - name: Build the book
         working-directory: ${{ github.workspace }}
         run: |
+          npm -v
           gitbook install && gitbook build
