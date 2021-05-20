@@ -21,7 +21,7 @@ jobs:
       - name: Setup gitbook
         run: | 
           npm install -g npm@3.9.2
-          npm install -g gitbook-cli
+          npm install -g gitbook-cli@3.0.3
       - name: Checkout main source
         uses: actions/checkout@v2
       - name: Build the book
