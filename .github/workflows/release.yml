@@ -1,0 +1,58 @@
+name: Build & Release GitBook
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'The release version of the gitbook, such as v1.1.1'
+        required: true
+        default: 'v1.1.0'
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+
+jobs:
+  get-upload-url:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo sh ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }}
+        id: upload-url
+    outputs:
+      upload-url: ${{ steps.upload-url.outputs.upload-url }} 
+  
+  build:
+    needs: get-upload-url
+    name: Build & Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js 10.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: "10.22.0"
+      - name: Setup gitbook
+        run: | 
+          npm install -g npm
+          npm install -g gitbook-cli
+      - name: Checkout main source
+        uses: actions/checkout@v2
+      - name: Build the book
+        working-directory: ${{ github.workspace }}
+        run: |
+          mkdir node_modules && cd node_modules && npm install gitbook-plugin-sitemap-general && cd .. 
+          gitbook install
+          cp -r misc/gitbook-plugin-hints/* node_modules/gitbook-plugin-hints/
+          cp misc/tbfed-pagefooter_index.js node_modules/gitbook-plugin-tbfed-pagefooter/index.js
+          gitbook build      
+      - name: package the book
+        working-directory: ${{ github.workspace }}
+        run: |
+          mv _book monolith-to-microservices && tar czvf "${{ github.event.inputs.version }}.tar.gz" monolith-to-microservices/*
+          ls .
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.get-upload-url.outputs.upload-url }}
+          asset_path: ${{ github.event.inputs.version }}.tar.gz
+          asset_name: ${{ github.event.inputs.version }}.tar.gz
+          asset_content_type: application/octet-stream

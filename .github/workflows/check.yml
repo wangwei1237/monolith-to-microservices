@@ -1,4 +1,4 @@
-name: Build and Publish My GitBook
+name: Build GitBook
 
 on:
   workflow_dispatch:
@@ -7,8 +7,8 @@ on:
       - master
 
 jobs:
-  build-and-deploy:
-    name: Build and deploy
+  build:
+    name: Build
     runs-on: ubuntu-latest
     env:
       MY_SECRET   : ${{secrets.GH_ACCESS_TOKEN}}
