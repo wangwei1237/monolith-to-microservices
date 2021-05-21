@@ -46,13 +46,13 @@ jobs:
       - name: package the book
         working-directory: ${{ github.workspace }}
         run: |
-          mv _book monolith-to-microservices && tar czvf "${{ github.event.inputs.version }}.tar.gz" monolith-to-microservices/*
+          mv _book monolith-to-microservices && tar czvf monolith-to-microservices.tar.gz monolith-to-microservices/*
           ls .
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.get-upload-url.outputs.upload-url }}
-          asset_path: ${{ github.event.inputs.version }}.tar.gz
-          asset_name: ${{ github.event.inputs.version }}.tar.gz
+          asset_path: monolith-to-microservices.tar.gz
+          asset_name: monolith-to-microservices.tar.gz
           asset_content_type: application/octet-stream
