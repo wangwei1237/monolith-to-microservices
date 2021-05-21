@@ -34,7 +34,7 @@
               "tbfed-pagefooter", 
               "cnzz", 
               "hints",
-              "sitemap-general"],
+              "sitemap"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false
@@ -60,8 +60,9 @@
       "danger": "fa fa-bug",
       "working": "fa fa-cog fa-spin"
     },
-    "sitemap-general": {
-      "prefix": "https://wangwei1237.gitee.io/monolith-to-microservices/"
+    "sitemap": {
+      "hostname": "https://wangwei1237.gitee.io",
+      "pathPrefix": "/monolith-to-microservices/"
     }
   },
   "title": "Monolith to Microservices",
