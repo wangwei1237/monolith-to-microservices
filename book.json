@@ -34,7 +34,11 @@
               "tbfed-pagefooter", 
               "cnzz", 
               "hints",
-              "sitemap"],
+              "sitemap",
+              "edit-link",
+              "back-to-top-button",
+              "github-buttons@2.1.0",
+              "github"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false
@@ -60,9 +64,20 @@
       "danger": "fa fa-bug",
       "working": "fa fa-cog fa-spin"
     },
-    "sitemap": {
-      "hostname": "https://wangwei1237.gitee.io",
-      "pathPrefix": "/monolith-to-microservices/"
+    "sitemap-general": {
+      "prefix": "https://wangwei1237.gitee.io/monolith-to-microservices/"
+    },
+    "github": {
+        "url": "https://github.com/wangwei1237/monolith-to-microservices"
+    },
+    "edit-link": {
+        "base": "https://github.com/wangwei1237/monolith-to-microservices/edit/master",
+        "label": "在线编辑"
+    },
+    "github-buttons": {
+        "repo": "wangwei1237/monolith-to-microservices",
+        "types": ["star"],
+        "size": "small"
     }
   },
   "title": "Monolith to Microservices",
