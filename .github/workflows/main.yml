@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-deploy:
     name: Build and deploy
-    runs-on: ubuntu-latest
+    runs-on: macos-10.15
     env:
       MY_SECRET   : ${{secrets.GH_ACCESS_TOKEN}}
 
@@ -20,7 +20,6 @@ jobs:
           node-version: "10.22.0"
       - name: Setup gitbook
         run: | 
-          npm config set registry https://registry.npm.taobao.org
           npm install -g npm
           npm install -g gitbook-cli
       - name: Checkout main source
