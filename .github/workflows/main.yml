@@ -27,5 +27,5 @@ jobs:
       - name: Build the book
         working-directory: ${{ github.workspace }}
         run: |
-          npm -v
+          mkdir node_modules && cd node_modules && npm install gitbook-plugin-sitemap-general && cd .. 
           gitbook install && gitbook build
