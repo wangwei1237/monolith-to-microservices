@@ -20,8 +20,9 @@ jobs:
           node-version: "10.22.0"
       - name: Setup gitbook
         run: | 
-          npm install -g npm@3.9.2
-          npm install -g gitbook-cli@2.3.0
+          npm config set registry https://registry.npm.taobao.org
+          npm install -g npm
+          npm install -g gitbook-cli
       - name: Checkout main source
         uses: actions/checkout@v2
       - name: Build the book
