@@ -48,6 +48,16 @@ jobs:
         run: |
           mv _book monolith-to-microservices && tar czvf monolith-to-microservices.tar.gz monolith-to-microservices/*
           ls .
+      - name: Get commit message (for release title and body)
+        id: commit
+        uses: kceb/git-message-action@v1
+      - name: Get release title and body
+        id: release
+        run: |
+          RELEASE_TITLE=$(echo "${{ steps.commit.outputs.git-message }}" | head -n 1)
+          echo "::set-output name=title::$RELEASE_TITLE"
+          RELEASE_BODY=$(echo "${{ steps.commit.outputs.git-message }}" | tail -n $(expr $(echo "${{ steps.commit.outputs.git-message }}" | wc -l) - 1))
+          echo "::set-output name=body::$RELEASE_BODY"
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -62,4 +72,4 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.TOKEN }}" \
           https://api.github.com/repos/wangwei1237/wangwei1237.github.io_src/dispatches \
-          -d '{"event_type":"update", "client_payload":{"from": "${{ github.repository }}", "msg": "${{ github.event.head_commit.message }}"}}'
+          -d '{"event_type":"update", "client_payload":{"from": "${{ github.repository }}", "msg": "${{ steps.release.outputs.title }} ${{ steps.release.outputs.body }}"}}'
