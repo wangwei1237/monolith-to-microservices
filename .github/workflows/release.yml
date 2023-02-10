@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }} && echo ${{ env.upload-url }}
+      - run: sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }} "$GITHUB_ENV" && echo ${{ env.upload-url }}
         id: upload-url
     outputs:
       upload-url: ${{ steps.upload-url.outputs.upload-url }}  
