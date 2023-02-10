@@ -80,7 +80,7 @@
         "types": ["star"],
         "size": "small"
     },
-    "pluginsConfig": {
+    "valine": {
         "appId": "ppRS6IT7xMHmCl54L7ynIC2Z-gzGzoHsz",
         "appKey": "qEmM49ZlU6LOwXCHjzMUECKu"
     }
