@@ -38,7 +38,8 @@
               "edit-link",
               "back-to-top-button",
               "github-buttons@2.1.0",
-              "github"],
+              "github",
+              "valine"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false
@@ -78,6 +79,10 @@
         "repo": "wangwei1237/monolith-to-microservices",
         "types": ["star"],
         "size": "small"
+    },
+    "pluginsConfig": {
+        "appId": "ppRS6IT7xMHmCl54L7ynIC2Z-gzGzoHsz",
+        "appKey": "qEmM49ZlU6LOwXCHjzMUECKu"
     }
   },
   "title": "Monolith to Microservices",
