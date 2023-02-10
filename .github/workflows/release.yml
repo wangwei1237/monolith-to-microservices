@@ -15,10 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-        sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }}
-        echo ${{ env.upload-url }}
-      id: upload-url
+      - run: sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }} && echo ${{ evn.upload-url }}
+        id: upload-url
     outputs:
       upload-url: ${{ steps.upload-url.outputs.upload-url }}  
   
@@ -34,7 +32,6 @@ jobs:
       - name: Setup gitbook
         run: | 
           echo ${{ needs.get-upload-url.outputs.upload-url }}
-          echo ${{ env.upload-url }}
           npm install -g npm@8.0.0
           npm install -g gitbook-cli
       - name: Checkout main source
