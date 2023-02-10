@@ -18,7 +18,7 @@ jobs:
       - run: sudo sh ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }}
         id: upload-url
     outputs:
-      upload-url: ${{ steps.upload-url.outputs.upload-url }} 
+      upload-url: ${{ steps.upload-url.outputs.upload-url }}  
   
   build:
     needs: get-upload-url
@@ -31,6 +31,7 @@ jobs:
           node-version: "10.22.0"
       - name: Setup gitbook
         run: | 
+          echo ${{ needs.get-upload-url.outputs.upload-url }}
           npm install -g npm@8.0.0
           npm install -g gitbook-cli
       - name: Checkout main source
@@ -62,7 +63,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: https://uploads.github.com/repos/wangwei1237/monolith-to-microservices/releases/91970084/assets{?name,label}
+          upload_url: ${{ needs.get-upload-url.outputs.upload-url }}
           asset_path: monolith-to-microservices.tar.gz
           asset_name: monolith-to-microservices.tar.gz
           asset_content_type: application/octet-stream
