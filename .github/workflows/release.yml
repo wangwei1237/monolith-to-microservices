@@ -16,9 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-        upload-url=$(sudo sh ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }})
-        echo "upload-url=$upload_url" >> $GITHUB_ENV
-
+        sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }}
+        echo ${{ env.upload-url }}
       id: upload-url
     outputs:
       upload-url: ${{ steps.upload-url.outputs.upload-url }}  

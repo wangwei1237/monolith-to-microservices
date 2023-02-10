@@ -2,7 +2,7 @@
 
 if [ $# -ne 2 ]
 then
-    #echo "::error the parameters error, please check!!!"
+    echo "::error the parameters error, please check!!!"
     exit 1
 fi
 
@@ -23,4 +23,4 @@ fi
 echo $upload_url
 
 #echo "::set-output name=upload-url::$upload_url"
-#echo "upload-url=$upload_url" >> $GITHUB_ENV
+echo "upload-url=$upload_url" >> $GITHUB_ENV
