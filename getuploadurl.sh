@@ -21,4 +21,4 @@ then
 fi
 
 #echo "::set-output name=upload-url::$upload_url"
-echo "upload-url=$upload_url" >> $env::GITHUB_OUTPUT
+echo "upload-url=$upload_url" >> $GITHUB_OUTPUT
