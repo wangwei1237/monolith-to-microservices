@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }} "$GITHUB_ENV" && echo "role=${{ env.upload-url }}" >> $GITHUB_OUTPUT
+      - run: sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }} "$GITHUB_ENV" && echo ${{ env.upload-url }}
         id: upload-url
     outputs:
       upload-url: ${{ steps.upload-url.outputs.upload-url }}  
@@ -74,4 +74,3 @@ jobs:
           -H "Authorization: token ${{ secrets.TOKEN }}" \
           https://api.github.com/repos/wangwei1237/wangwei1237.github.io_src/dispatches \
           -d '{"event_type":"update", "client_payload":{"from": "${{ github.repository }}", "msg": "${{ steps.release.outputs.title }} ${{ steps.release.outputs.body }}"}}'
-monolith-to-microservices/release.yml at master · wangwei1237/monolith-to-microservices
