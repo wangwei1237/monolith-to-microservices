@@ -16,9 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }} | xargs -I {} echo "upload-url={}" >> $GITHUB_OUTPUT
-        id: step-upload-url
+        id: upload-url
     outputs:
-      upload-url: ${{ steps.step-upload-url.outputs.upload-url }}  
+      upload-url: ${{ steps.upload-url.outputs.upload-url }}  
   
   build:
     needs: [get-upload-url]
@@ -42,7 +42,6 @@ jobs:
           mkdir node_modules && cd node_modules && npm install gitbook-plugin-sitemap-general && cd .. 
           gitbook install
           cp -r misc/gitbook-plugin-hints/* node_modules/gitbook-plugin-hints/
-          cp misc/tbfed-pagefooter_index.js node_modules/gitbook-plugin-tbfed-pagefooter/index.js
           gitbook build      
       - name: package the book
         working-directory: ${{ github.workspace }}
