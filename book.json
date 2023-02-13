@@ -32,7 +32,6 @@
   },
   "plugins": ["page-toc-button", 
               "tbfed-pagefooter", 
-              "cnzz", 
               "hints",
               "sitemap-general",
               "edit-link",
@@ -54,11 +53,6 @@
     "tbfed-pagefooter": {
       "copyright":"Copyrights &copy wangwei"
     }, 
-    "cnzz": {
-      "visible": true,
-      "style": "1",
-        "siteid": "1278605528"
-    },
     "hints": {
       "info": "fa fa-info-circle",
       "tip": "fa fa-sticky-note",
