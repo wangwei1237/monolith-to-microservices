@@ -18,7 +18,7 @@ jobs:
       - run: sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }} "$GITHUB_ENV" && echo "upload-url=${{ env.upload-url }}" >> $GITHUB_OUTPUT
         id: upload-url
     outputs:
-      upload-url: ${{ steps.upload-url.outputs.upload-url }}  
+      upload-url: ${{ steps.get-upload-url.outputs.upload-url }}  
   
   build:
     needs: [get-upload-url]
