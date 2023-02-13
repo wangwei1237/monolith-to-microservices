@@ -15,6 +15,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with: 
+          data: ${{ steps.upload-url.outputs.upload-url }}
+          variable: STEP_UPLOAD_OUTPUT
       - run: sudo sh -x ./getuploadurl.sh ${{ github.event.inputs.version }} ${{ secrets.GITHUB_TOKEN }} "$GITHUB_ENV" && echo ${{ env.upload-url }}
         id: upload-url
     outputs:
@@ -29,9 +32,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "10.22.0"
+          data: ${{ steps.upload-url.outputs.upload-url }}
+          retrieve_variables: STEP_UPLOAD_OUTPUT
       - name: Setup gitbook
         run: | 
-          echo ${{ needs.get-upload-url.outputs.upload-url }}
+          echo $STEP_UPLOAD_OUTPUT
           npm install -g npm@8.0.0
           npm install -g gitbook-cli
       - name: Checkout main source
@@ -63,7 +68,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.upload-url.outputs.upload-url }}
+          data: ${{ steps.upload-url.outputs.upload-url }}
+          retrieve_variables: STEP_UPLOAD_OUTPUT
           asset_path: monolith-to-microservices.tar.gz
           asset_name: monolith-to-microservices.tar.gz
           asset_content_type: application/octet-stream
