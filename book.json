@@ -37,8 +37,7 @@
               "edit-link",
               "back-to-top-button",
               "github-buttons@2.1.0",
-              "github",
-              "valine-17"],
+              "github"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false

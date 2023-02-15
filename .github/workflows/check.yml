@@ -27,7 +27,7 @@ jobs:
       - name: Build the book
         working-directory: ${{ github.workspace }}
         run: |
-          mkdir node_modules && cd node_modules && npm install gitbook-plugin-sitemap-general && cd .. 
+          mkdir node_modules && cd node_modules && npm install gitbook-plugin-sitemap-general && npm install gitbook-plugin-valine-17 && cd .. 
           gitbook install
           cp -r misc/gitbook-plugin-hints/* node_modules/gitbook-plugin-hints/
           cp misc/tbfed-pagefooter_index.js node_modules/gitbook-plugin-tbfed-pagefooter/index.js
