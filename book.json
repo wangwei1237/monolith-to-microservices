@@ -38,7 +38,7 @@
               "back-to-top-button",
               "github-buttons@2.1.0",
               "github",
-              "valine-17@1.0.1"],
+              "valine-17"],
   "pluginsConfig": {
       "theme-default": {
         "showLevel": false
