@@ -72,10 +72,6 @@
         "repo": "wangwei1237/monolith-to-microservices",
         "types": ["star"],
         "size": "small"
-    },
-    "valine": {
-        "appId": "ppRS6IT7xMHmCl54L7ynIC2Z-gzGzoHsz",
-        "appKey": "qEmM49ZlU6LOwXCHjzMUECKu"
     }
   },
   "title": "Monolith to Microservices",
