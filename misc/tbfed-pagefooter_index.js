@@ -34,7 +34,7 @@ module.exports = {
       '\n\n<div id="vcomments"></div>' + 
       '\n\n<script> new Valine({el: "#vcomments",appId: "ppRS6IT7xMHmCl54L7ynIC2Z-gzGzoHsz",appKey: "qEmM49ZlU6LOwXCHjzMUECKu", path: window.location.pathname, avatar: "mp", placeholder: "快来评论吧~", recordIP: true,visitor: true,})</script>';
       
-     var strComment = '';
+     //var strComment = '';
       page.content = page.content + strComment + str;
       return page;
     }
