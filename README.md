@@ -2,7 +2,7 @@
 
 **[Monolith to Microservices: Evolutionary Patterns to Transform Your Monolith](https://www.amazon.com/Monolith-Microservices-Evolutionary-Patterns-Transform/dp/1492047848)**中文版。
 
-**[点击下载PDF](https://wangwei1237.gitee.io/shares/monolith-to-microservices.pdf)**
+**[点击下载PDF](https://wangwei1237.github.io/shares/monolith-to-microservices.pdf)**
 
 {% hint style='info' %}
 * 已经完成书籍核心内容的翻译工作，书籍内容也会在这里进行更新。

@@ -12,11 +12,11 @@ var ALERT_STYLES = {
  */
 function makeIcon(style, pluginConfig) {
     if (style == "info") {
-        return '<div class="hints-icon-img"><img src="https://wangwei1237.gitee.io/tip.png" /></div>';
+        return '<div class="hints-icon-img"><img src="https://wangwei1237.github.io/tip.png" /></div>';
     } else if (style == "tip") {
-        return '<div class="hints-icon-img"><img src="https://wangwei1237.gitee.io/note.png" /></div>';
+        return '<div class="hints-icon-img"><img src="https://wangwei1237.github.io/note.png" /></div>';
     } else if (style == "danger") {
-        return '<div class="hints-icon-img"><img src="https://wangwei1237.gitee.io/warn.png" /></div>';
+        return '<div class="hints-icon-img"><img src="https://wangwei1237.github.io/warn.png" /></div>';
     } else {
         var id = pluginConfig[style];
         return '<div class="hints-icon"><i class="'+id+'"></i></div>';

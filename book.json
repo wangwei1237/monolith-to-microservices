@@ -13,7 +13,7 @@
       "weibo": null
     },
     "sidebar": {
-        "17哥的个人网站": "https://wangwei1237.gitee.io/"
+        "17哥的个人网站": "https://wangwei1237.github.io/"
     }
   },
   "output": null,
@@ -59,7 +59,7 @@
       "working": "fa fa-cog fa-spin"
     },
     "sitemap-general": {
-      "prefix": "https://wangwei1237.gitee.io/monolith-to-microservices/"
+      "prefix": "https://wangwei1237.github.io/monolith-to-microservices/"
     },
     "github": {
         "url": "https://github.com/wangwei1237/monolith-to-microservices"
